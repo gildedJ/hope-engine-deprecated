@@ -1,7 +1,9 @@
 #include "game.h"
+#include "entity.h"
 #include "textureManager.h"
 
 TextureId tilesetTextureId = 0;
+EntityManager entityManager;
 
 Game::Game() 
   : IsRunning(false),
@@ -30,6 +32,7 @@ void Game::Init(const char *title,
     SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
   if (!Renderer) { IsRunning = false; return; }
   tilesetTextureId = TextureManager::LoadTexture(".\\data\\tileset.png", Renderer);
+  
 }
 
 void Game::HandleEvents()

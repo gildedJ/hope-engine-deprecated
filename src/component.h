@@ -3,17 +3,24 @@
 
 #include "entity.h"
 
-enum ComponentType {
+enum ComponentType 
+{
   Position = 0,
-  Velocity,
-  Acceleration,
+  Movement,
   BoxCollider,
+  Sprite,
+  SpriteAnimation,
+  Health,
   COMPONENT_COUNT
 };
 
-struct Component {
+struct Component 
+{
+  Component(ComponentType type) : Type(type), EntityId(0) {}
+
   EntityId EntityId;
   ComponentType Type;
 };
+
 
 #endif

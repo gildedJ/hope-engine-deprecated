@@ -4,8 +4,11 @@
 #include "../component.h"
 #include "../vector2.h"
 
-struct PositionComponent : Component {
-  Vector2 Position;
+struct Position : Component 
+{
+  Position() : Component(ComponentType::Position) {}
+  
+  Vector2 Pos;
 };
 
 #endif
