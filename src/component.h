@@ -11,14 +11,19 @@ enum ComponentType
   Sprite,
   SpriteAnimation,
   Health,
+  Player,  // Tag
+  Enemy,   // Tag
+  Neutral, // Tag
+  LocalControlled,
+  RemoteControlled,
   COMPONENT_COUNT
 };
 
 struct Component 
 {
-  Component(ComponentType type) : Type(type), EntityId(0) {}
+  Component(ComponentType type) : Type(type), Id(0) {}
 
-  EntityId EntityId;
+  EntityId Id;
   ComponentType Type;
 };
 

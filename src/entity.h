@@ -1,9 +1,10 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include "component.h"
 
 typedef int EntityId;
+
+#include "component.h"
 
 struct Entity 
 {

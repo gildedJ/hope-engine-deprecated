@@ -2,11 +2,7 @@
 .vs/Hope Engine/v15/.suo
 .vs/Hope Engine/v15/Browse.VC.db
 .vs/Hope Engine/v15/ipch/AutoPCH/3630706de7fbf19e/GAME.ipch
-build/game.obj
 build/hope.exe
+build/*.pdb
+build/*.obj
 build/hope.ilk
-build/hope.pdb
-build/main.obj
-build/textureManager.obj
-build/vc110.pdb
-build/vc140.pdb
