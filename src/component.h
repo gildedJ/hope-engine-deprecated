@@ -16,6 +16,7 @@ enum ComponentType
   Neutral, // Tag
   LocalControlled,
   RemoteControlled,
+  AIControlled,
   COMPONENT_COUNT
 };
 

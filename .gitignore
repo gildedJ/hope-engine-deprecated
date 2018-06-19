@@ -6,3 +6,5 @@ build/hope.exe
 build/*.pdb
 build/*.obj
 build/hope.ilk
+build/hope.exp
+build/hope.lib

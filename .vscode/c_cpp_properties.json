@@ -5,13 +5,15 @@
             "browse": {
                 "path": [
                     "${workspaceFolder}",
+                    "C:\\SDL2\\include",
                     "C:\\Users\\jacksonj\\Desktop\\Junk Bin\\dagobah\\SDL\\include"
                 ],
                 "limitSymbolsToIncludedHeaders": true
             },
             "includePath": [
                 "${workspaceFolder}/**",
-                "C:/Users/jacksonj/Desktop/Junk Bin/dagobah/SDL/include"
+                "C:\\SDL2\\include",
+                "C:\\Users\\jacksonj\\Desktop\\Junk Bin\\dagobah\\SDL\\include"
             ],
             "defines": [
                 "_DEBUG",
@@ -20,8 +22,7 @@
             ],
             "cStandard": "c11",
             "cppStandard": "c++17",
-            "intelliSenseMode": "msvc-x64",
-            "compilerPath": "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\bin\\cl.exe"
+            "intelliSenseMode": "msvc-x64"
         }
     ],
     "version": 4
