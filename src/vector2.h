@@ -35,4 +35,9 @@ Vector2 operator-(Vector2 a, Vector2 b)
   return result;
 }
 
+bool operator==(const Vector2 &lhs, const Vector2 &rhs)
+{
+  return lhs.X == rhs.X && lhs.Y == rhs.Y;
+}
+
 #endif
