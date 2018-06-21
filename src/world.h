@@ -5,43 +5,37 @@
 #include "vector3.h"
 
 #include <unordered_map>
+#include <vector>
 
-namespace std {
-  template<> struct hash<Vector3>
-  {
-    size_t operator()(const Vector3& key) const
-    {
-      return (key.X * 37) + (key.Y * 41) + (key.Z * 43);
-    }
-  };
-}
-
-#define CHUNK_ENTITY_PAGE_SIZE 32
-
-struct EntityPage
+namespace std
 {
-  int Count;
-  EntityId Entities[CHUNK_ENTITY_PAGE_SIZE];
-  EntityPage *NextPage;
+template <typename T>
+struct hash<Vector3<T>>
+{
+  size_t operator()(const Vector3<T> &key) const
+  {
+    return (key.X * 37) + (key.Y * 41) + (key.Z * 43);
+  }
 };
+} // namespace std
 
 struct WorldChunk
 {
-  Vector3 Position;
-  EntityPage FirstPage;
+  Vector3<int> Position;
+  std::vector<EntityId> Entities;
 };
+
+typedef std::unordered_map<Vector3<int>, WorldChunk *> WorldChunkMap;
+typedef WorldChunkMap::iterator WorldChunkMapIterator;
 
 struct World
 {
   World();
   ~World();
 
-  std::unordered_map<Vector3, WorldChunk*> ChunkMap;
+  WorldChunkMap ChunkMap;
 
-  WorldChunk *GetChunk(Vector3);
+  WorldChunk *GetChunk(Vector3<int>);
 };
-
-
-
 
 #endif

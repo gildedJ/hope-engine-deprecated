@@ -1,41 +1,48 @@
 #ifndef VECTOR2_H
 #define VECTOR2_H
 
-struct Vector2 
+template <typename T>
+struct Vector2
 {
-  float X, Y;
+  T X, Y;
 };
 
-Vector2 operator+(Vector2 a, Vector2 b)
+template <typename T>
+Vector2<T> operator+(Vector2<T> a, Vector2<T> b)
 {
-  Vector2 result = { a.X + b.X, a.Y + b.Y };
+  Vector2 result = {a.X + b.X, a.Y + b.Y};
   return result;
 }
 
-Vector2 operator*(float c, Vector2 v)
+template <typename T>
+Vector2<T> operator*(float c, Vector2<T> v)
 {
   Vector2 result = {c * v.X, c * v.Y};
   return result;
 }
 
-Vector2 operator*(Vector2 v, float c)
+template <typename T>
+Vector2<T> operator*(Vector2<T> v, float c)
 {
-  return operator*(c,v);
+  return operator*(c, v);
 }
 
-Vector2 operator-(Vector2 v)
+template <typename T>
+Vector2<T> operator-(Vector2<T> v)
 {
   Vector2 result = {-v.X, -v.Y};
   return result;
 }
 
-Vector2 operator-(Vector2 a, Vector2 b)
+template <typename T>
+Vector2<T> operator-(Vector2<T> a, Vector2<T> b)
 {
   Vector2 result = {a.X - b.X, a.Y - b.Y};
   return result;
 }
 
-bool operator==(const Vector2 &lhs, const Vector2 &rhs)
+template <typename T>
+bool operator==(const Vector2<T> &lhs, const Vector2<T> &rhs)
 {
   return lhs.X == rhs.X && lhs.Y == rhs.Y;
 }

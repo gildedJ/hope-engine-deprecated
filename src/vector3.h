@@ -1,41 +1,48 @@
 #ifndef VECTOR3_H
 #define VECTOR3_H
 
-struct Vector3 
+template <typename T>
+struct Vector3
 {
-  float X, Y, Z;
+  T X, Y, Z;
 };
 
-Vector3 operator+(Vector3 a, Vector3 b)
+template <typename T>
+Vector3<T> operator+(Vector3<T> a, Vector3<T> b)
 {
-  Vector3 result = { a.X + b.X, a.Y + b.Y, a.Z + b.Z };
+  Vector3<T> result = {a.X + b.X, a.Y + b.Y, a.Z + b.Z};
   return result;
 }
 
-Vector3 operator*(float c, Vector3 v)
+template <typename T>
+Vector3<T> operator*(float c, Vector3<T> v)
 {
-  Vector3 result = {c * v.X, c * v.Y, c * v.Z};
+  Vector3<T> result = {c * v.X, c * v.Y, c * v.Z};
   return result;
 }
 
-Vector3 operator*(Vector3 v, float c)
+template <typename T>
+Vector3<T> operator*(Vector3<T> v, float c)
 {
-  return operator*(c,v);
+  return operator*(c, v);
 }
 
-Vector3 operator-(Vector3 v)
+template <typename T>
+Vector3<T> operator-(Vector3<T> v)
 {
-  Vector3 result = {-v.X, -v.Y, -v.Z};
+  Vector3<T> result = {-v.X, -v.Y, -v.Z};
   return result;
 }
 
-Vector3 operator-(Vector3 a, Vector3 b)
+template <typename T>
+Vector3<T> operator-(Vector3<T> a, Vector3<T> b)
 {
-  Vector3 result = {a.X - b.X, a.Y - b.Y, a.Z - b.Z};
+  Vector3<T> result = {a.X - b.X, a.Y - b.Y, a.Z - b.Z};
   return result;
 }
 
-bool operator==(const Vector3 &lhs, const Vector3 &rhs)
+template <typename T>
+bool operator==(const Vector3<T> &lhs, const Vector3<T> &rhs)
 {
   return lhs.X == rhs.X && lhs.Y == rhs.Y && lhs.Z == rhs.Z;
 }

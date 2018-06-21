@@ -1,11 +1,11 @@
 #include "entity.h"
 #include <cassert>
 
-Entity::Entity() 
-  : Entity(0) {}
+Entity::Entity()
+    : Entity(0) {}
 
-Entity::Entity(EntityId id) 
-  : Id(id), ComponentOwnership(0) {}
+Entity::Entity(EntityId id)
+    : Id(id), ComponentOwnership(0) {}
 
 bool Entity::HasComponent(ComponentType type)
 {
