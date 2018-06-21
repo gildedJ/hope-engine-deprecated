@@ -3,12 +3,14 @@
 
 #include "../component.h"
 #include "../vector2.h"
+#include "../vector3.h"
 
 struct Position : Component
 {
   Position() : Component(ComponentType::Position) {}
 
-  Vector2<float> Pos;
+  Vector2<float> ChunkPosition;
+  Vector3<int> WorldPosition;
 };
 
 #endif

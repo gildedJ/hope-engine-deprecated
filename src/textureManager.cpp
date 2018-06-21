@@ -4,17 +4,19 @@
 
 #include <unordered_map>
 #include <string>
-using namespace std;
+
+typedef std::unordered_map<std::string, TextureId> TextureStore;
+typedef TextureStore::iterator TextureStoreIterator;
 
 #define MAX_TEXTURES 32
 
 static TextureId _NextId = 0;
 static SDL_Texture *Textures[MAX_TEXTURES];
-static unordered_map<string, TextureId> FilenameToId;
+static TextureStore FilenameToId;
 
 const TextureId TextureManager::LoadTexture(const char *filename, SDL_Renderer *renderer)
 {
-  unordered_map<string, TextureId>::iterator it = FilenameToId.find(filename);
+  TextureStoreIterator it = FilenameToId.find(filename);
   if (it == FilenameToId.end() || Textures[it->second] == NULL)
   {
     SDL_Surface *tmpSurface = IMG_Load(filename);

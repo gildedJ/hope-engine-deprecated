@@ -9,7 +9,18 @@ Entity::Entity(EntityId id)
 
 bool Entity::HasComponent(ComponentType type)
 {
-  return (bool)(this->ComponentOwnership && (1 << type));
+  return (bool)(this->ComponentOwnership & (1 << type));
+}
+
+// A group is a bit mask to compare against ComponentOwnership
+bool Entity::InGroup(int group)
+{
+  return (this->ComponentOwnership & group) == group;
+}
+
+bool Entity::ExcludesGroup(int group)
+{
+  return !(bool)(this->ComponentOwnership & group);
 }
 
 Component *Entity::GetComponent(ComponentType type)
@@ -71,7 +82,7 @@ EntityId EntityManager::CreateEntity()
 void EntityManager::DestroyEntity(EntityId id)
 {
   Entities[id].Id = 0;
-  NumEntities--;
+  //NumEntities--;
 
   EM_FreeSlot *newFree = new EM_FreeSlot;
   newFree->Id = id;

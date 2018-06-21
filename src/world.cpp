@@ -4,6 +4,26 @@
 
 #define WORLD_CHUNK_HASHMAP_SIZE 1024
 
+void WorldChunk::RemoveEntity(EntityId id)
+{
+  EntityListIterator it = Entities.find(id);
+  if (it != Entities.end())
+  {
+    Entities.erase(it);
+  }
+}
+
+void WorldChunk::AddEntity(EntityId id)
+{
+  Entities.insert(id);
+}
+
+void MoveEntity(EntityId id, WorldChunk *from, WorldChunk *to)
+{
+  from->RemoveEntity(id);
+  to->AddEntity(id);
+}
+
 World::World()
 {
 }

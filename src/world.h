@@ -5,7 +5,7 @@
 #include "vector3.h"
 
 #include <unordered_map>
-#include <vector>
+#include <unordered_set>
 
 namespace std
 {
@@ -19,10 +19,16 @@ struct hash<Vector3<T>>
 };
 } // namespace std
 
+typedef std::unordered_set<EntityId> EntityList;
+typedef EntityList::iterator EntityListIterator;
+
 struct WorldChunk
 {
   Vector3<int> Position;
-  std::vector<EntityId> Entities;
+  EntityList Entities;
+
+  void RemoveEntity(EntityId);
+  void AddEntity(EntityId);
 };
 
 typedef std::unordered_map<Vector3<int>, WorldChunk *> WorldChunkMap;
@@ -37,5 +43,7 @@ struct World
 
   WorldChunk *GetChunk(Vector3<int>);
 };
+
+void MoveEntity(EntityId id, WorldChunk *from, WorldChunk *to);
 
 #endif

@@ -15,12 +15,14 @@ struct Entity
   int ComponentOwnership;
 
   bool HasComponent(ComponentType);
+  bool InGroup(int);
+  bool ExcludesGroup(int);
   Component *GetComponent(ComponentType);
   void AddComponent(Component *);
   void RemoveComponent(ComponentType type);
 };
 
-#define MAX_ENTITIES 2048
+#define MAX_ENTITIES 65536
 
 struct EM_FreeSlot
 {
