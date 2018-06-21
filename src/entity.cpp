@@ -2,7 +2,7 @@
 #include <cassert>
 
 Entity::Entity()
-    : Entity(0) {}
+    : Id(0), ComponentOwnership(0) {}
 
 Entity::Entity(EntityId id)
     : Id(id), ComponentOwnership(0) {}

@@ -33,7 +33,7 @@ struct EntityManager
   EntityManager();
 
   int NumEntities;
-  EM_FreeSlot* NextFree;
+  EM_FreeSlot *NextFree;
   Entity Entities[MAX_ENTITIES];
 
   void AddComponent(EntityId, Component *);

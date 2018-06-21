@@ -4,12 +4,12 @@
 #include "../component.h"
 #include "../vector2.h"
 
-struct Movement : Component 
+struct Movement : Component
 {
   Movement() : Component(ComponentType::Movement) {}
 
-  Vector2 Velocity;
-  Vector2 Acceleration;
+  Vector2<float> Velocity;
+  Vector2<float> Acceleration;
 };
 
 #endif
