@@ -15,11 +15,13 @@ bool Entity::HasComponent(ComponentType type)
 // A group is a bit mask to compare against ComponentOwnership
 bool Entity::InGroup(int group)
 {
+  assert(group > 0);
   return (this->ComponentOwnership & group) == group;
 }
 
 bool Entity::ExcludesGroup(int group)
 {
+  assert(group > 0);
   return !(bool)(this->ComponentOwnership & group);
 }
 
