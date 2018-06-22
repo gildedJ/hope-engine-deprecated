@@ -1,9 +1,5 @@
 #include "world.h"
 
-#include <memory>
-
-#define WORLD_CHUNK_HASHMAP_SIZE 1024
-
 void WorldChunk::RemoveEntity(EntityId id)
 {
   EntityListIterator it = Entities.find(id);
